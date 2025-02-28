@@ -27,7 +27,7 @@ if __name__ == '__main__':
     ax1.grid()
 
     ax2 = axes[0, 1]
-    ax2.plot(x, y2, color="magenta", label="Закон ІІ: y(x) = (a + 3) * 0.01) * sin(x)")
+    ax2.plot(x, y2, color="magenta", label="Закон ІІ: y(x) = ((a + 3) * 0.01)) * sin(x)")
     ax2.axhline(0, color="grey")
     ax2.axvline(0, color="grey")
     ax2.set_xlabel("x")
