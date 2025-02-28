@@ -3,6 +3,8 @@
 *.iml
 *.ipr
 *.iws
+misc.xml
+workspace.xml
 
 # Python
 venv
