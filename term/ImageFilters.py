@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib.pyplot import title
 
 
 class ImageFilters:
@@ -14,13 +13,6 @@ class ImageFilters:
         image = cv2.imread(image_path)
         image_tuned = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         return image_tuned
-
-    # @staticmethod
-    # def show_image(image):
-    #     plt.figure(figsize=(15, 10))
-    #     plt.imshow(image, cmap="gray")
-    #     plt.axis("off")
-    #     plt.show()
 
     @staticmethod
     def show_image(image, image_explanation_text):
@@ -210,4 +202,4 @@ if __name__ == '__main__':
     image_filters.show_image(salty_noisy_skydive, 'Salt-pepper noise')
 
     borders_image = image_filters.detect_objects(wind_tunel, 2)
-    image_filters.show_image(borders_image, 'Border detection of two objects')
+    image_filters.show_image(borders_image, 'Border detection of two wind-tunel flyers')
