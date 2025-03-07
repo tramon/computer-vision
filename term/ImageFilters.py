@@ -166,7 +166,6 @@ if __name__ == '__main__':
 
     skydive = image_filters.get_image('skydive.jpg')
     wind_tunel = image_filters.get_image('wind-tunel.jpg')
-    duo_skydive = image_filters.get_image('duo_skydive.jpg')
 
     skydive_monochrome = image_filters.colored_to_monochrome(wind_tunel)
     image_filters.show_image(skydive_monochrome, 'Monochrome')
