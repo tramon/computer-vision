@@ -462,14 +462,26 @@ class GraphicsObject:
     def setFill(self, color):
         """Set interior color to color"""
         self._reconfig("fill", color)
-        
+
+    def getFill(self):
+        """Returns the fill color of the figure."""
+        return self.config['fill']
+
     def setOutline(self, color):
         """Set outline color to color"""
         self._reconfig("outline", color)
-        
+
+    def getOutline(self):
+        """Returns the outline color of the figure."""
+        return self.config['outline']
+
     def setWidth(self, width):
         """Set line weight to width"""
         self._reconfig("width", width)
+
+    def getWidth(self):
+        """Returns the width of theoutline of a figure."""
+        return self.config['width']
 
     def draw(self, graphwin):
 
