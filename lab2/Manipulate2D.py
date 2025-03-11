@@ -83,7 +83,7 @@ class Manipulate2D:
                     new_x = center_point.getX() + dx * (1 - scale_factor / steps)
                     new_y = center_point.getY() + dy * (1 - scale_factor / steps)
                 else:
-                    raise ValueError("The figure can only be enlarged or shrinked")
+                    raise ValueError("The figure can only be enlarged or shrunk")
 
                 new_points.append(Point(new_x, new_y))
 
