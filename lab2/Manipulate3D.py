@@ -68,20 +68,6 @@ class Manipulate3D:
             raise ValueError("Invalid axis. Choose from 'x', 'y', or 'z'.")
         return rotated_points
 
-    @staticmethod
-    def rotate(points, angle, axis):
-        tetrahedron_center = np.mean(points)
-        rotated_points = Manipulate3D.axis_matrix_operations(points, angle, tetrahedron_center, axis)
-
-        return rotated_points
-
-    @staticmethod
-    def rotate_fixed_vertex(points, angle, axis):
-        tetrahedron_center = np.mean(points[:3], axis=0)
-        rotated_points = Manipulate3D.axis_matrix_operations(points, angle, tetrahedron_center, axis)
-
-        return rotated_points
-
     def draw_faces(self, window, window_points, colors):
         face_objects = []
 
@@ -106,6 +92,20 @@ class Manipulate3D:
 
         win.getMouse()
         Manipulate3D.undraw_faces(face_objects)
+
+    @staticmethod
+    def rotate(points, angle, axis):
+        tetrahedron_center = np.mean(points)
+        rotated_points = Manipulate3D.axis_matrix_operations(points, angle, tetrahedron_center, axis)
+
+        return rotated_points
+
+    @staticmethod
+    def rotate_fixed_vertex(points, angle, axis):
+        tetrahedron_center = np.mean(points[:3], axis=0)
+        rotated_points = Manipulate3D.axis_matrix_operations(points, angle, tetrahedron_center, axis)
+
+        return rotated_points
 
     def animate_rotation(self, win, center_x, center_y, size, angle, colors, axis):
         points = Manipulate3D.prepare_tetrahedron_points(size)
@@ -156,6 +156,6 @@ if __name__ == "__main__":
 
     manipulate3d.draw_tetrahedron(window, center_x, center_y, size, colors)
 
-    manipulate3d.infinite_animation(window, center_x, center_y, size, colors, axis='y')
+    manipulate3d.infinite_animation(window, center_x, center_y, size, colors, axis='x')
 
     manipulate3d.infinite_animation_fixed_vertex(window, center_x, center_y, size, colors, axis='z')
