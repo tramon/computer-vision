@@ -220,7 +220,7 @@ class TrafficStaticAnalyzer:
                         cv2.LINE_AA)
 
         self.image = drawn_image
-        print(f"Drawn Trucks: {len(non_intersected_candidates)}")
+        print(f"Identified Trucks: {len(non_intersected_candidates)}")
 
     def _find_trucks(self, current_image, draw_all_contours, min_area, max_area, aspect_ratio_range):
         """
@@ -306,30 +306,33 @@ class TrafficStaticAnalyzer:
 
 
 if __name__ == '__main__':
-    # analyzer = TrafficStaticAnalyzer("traffic1.jpg")
+    analyzer = TrafficStaticAnalyzer("traffic1.jpg")
     # analyzer = TrafficStaticAnalyzer("traffic2.jpg")
-    analyzer = TrafficStaticAnalyzer("traffic3.jpg")
+    #analyzer = TrafficStaticAnalyzer("traffic3.jpg")
     # analyzer = TrafficStaticAnalyzer("traffic4.jpg")
     analyzer.load_image()
-    # analyzer.show_image(title="Original Image")
+    analyzer.show_image(title="Original Image")
 
     analyzer.adjust_brightness(factor=0.7)  # 0.7 - for trucks
+    analyzer.show_image(title="Brightness Optimized to 0.7")
     analyzer.adjust_brightness(factor=1.1)  # 1.1 - for trucks
-    # analyzer.show_image(title="Brightness Optimized")
+    analyzer.show_image(title="Brightness Optimized to 1.1 after 0.7")
 
     analyzer.apply_filter(method="gaussian", kernel_size=(9, 9))
-    # analyzer.show_image(title="Gaussian Blurred")
+    analyzer.show_image(title="Gaussian Blurred")
 
     analyzer.apply_filter(method="morphological_gradient", kernel_size=(5, 5))
-    # analyzer.show_image(title="Morphological gradient")
+    analyzer.show_image(title="Morphological gradient")
 
     analyzer.apply_filter(method="canny", threshold1=35, threshold2=135)
-    # analyzer.show_image(title="Canny Edge Detection")
+    analyzer.show_image(title="Canny Edge Detection")
 
     analyzer.close_open_contours(min_distance=15, max_distance=35)
-    # analyzer.show_image(title="Closed Open contours")
+    analyzer.show_image(title="Closed Open contours")
 
     # ------------------------
-    # analyzer.find_truck_raw(min_area=1900, max_area=3000, aspect_ratio_range=(2.0, 3.8))
-    analyzer.find_truck(min_area=1900, max_area=3000, aspect_ratio_range=(2.0, 3.8))
+    # only one of the following methods at a time can be used: find_truck_raw() or find_truck()
+    analyzer.find_truck_raw(min_area=1900, max_area=3000, aspect_ratio_range=(2.0, 3.8))
+    # analyzer.find_truck(min_area=1900, max_area=3000, aspect_ratio_range=(2.0, 3.8))
+
     analyzer.show_image(title="Detected Trucks")
