@@ -144,6 +144,12 @@ class ImageFilterUtils:
             kernel = cv2.getStructuringElement(cv2.MORPH_RECT, kernel_size)
             filtered = cv2.morphologyEx(working_image, cv2.MORPH_GRADIENT, kernel)
 
+        elif method == "sharpen":
+            kernel = np.array([[0, -1, 0],
+                               [-1, 5, -1],
+                               [0, -1, 0]])
+            filtered = cv2.filter2D(working_image, -1, kernel)
+
         else:
             raise ValueError(f"Filter method '{method}' is not implemented or absent")
 

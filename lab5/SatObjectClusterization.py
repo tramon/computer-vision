@@ -15,7 +15,7 @@ class SatObjectFinder:
 
 if __name__ == "__main__":
     image_path = "dataspace_300m.jpg"
-    # image_path = "googlemaps_200m.jpg"
+    # image_path = "googlemaps.jpg"
     analyzer = ImageFilterUtils(image_path)
     analyzer.load_image()
     # analyzer.show_image('Original satellite image')
