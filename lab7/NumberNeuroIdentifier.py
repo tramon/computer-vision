@@ -135,9 +135,9 @@ if __name__ == '__main__':
     X = digits.data[mask] / 16.0
     Y = digits.target[mask]
 
-    hidden_size = 12
+    hidden_size = 8
     learning_rate = 0.1
-    epochs = 60
+    epochs = 70
 
     model = NumberNeuroIdentifier(input_size=64, hidden_size=hidden_size, output_size=10,
                                   learning_rate=learning_rate)
